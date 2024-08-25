@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details Task</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!--heading-->
+        <h1 class="heading">STUDENT FORM</h1>
+        <div class="student-details">
+
+            <!--table-form-->
+
+            <form>
+                <table id="student-details__table">
+                    <tr>
+                        <td>
+                            <label for="inputBoxname">
+                                <h4>Name</h4>
+                            </label>
+                        </td>
+                        <td>
+                            <input id="inputBoxname" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="inputBoxage">
+                                <h4>Age</h4>
+                            </label></td>
+                        <td><input id="inputBoxage" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="inputBoxmale">
+                                <h4>Gender</h4>
+                            </label>
+                        </td>
+                        <td><input type="radio" id="inputBoxmale" value="male">Male<input id="inputBoxfem" type="radio"
+                                value="female">Female</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="inputBoxcourse">
+                                <h4>Course</h4>
+                            </label>
+                        </td>
+
+                        <td><select id="inputBoxcourse">
+                                <option>Javascript</option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                                <option>React</option>
+
+                            </select>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="inputBoxemail">
+
+                                <h4>E-mail</h4>
+                            </label>
+                        </td>
+                        <td><input id="inputBoxemail" type="email"></td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2">
+                            <button id="save" type="button" onclick="savetable()">Save</button>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </form>
+
+        </div>
+    </div>
+    <!--first table ends-->
+    <!--table-two starts-->
+    <div class="student-details-new">
+
+        <table border="1" id="student-details__table2">
+            <tr>
+                <th>
+                    <h4>Name</h4>
+                </th>
+
+                <th>
+                    <h4>Age</h4>
+                </th>
+                <th>
+                    <h4>Course</h4>
+                </th>
+                <th>
+                    <h4>Gender</h4>
+                </th>
+                <th>
+                    <h4>E-mail</h4>
+                </th>
+                <th>
+                    <h4>Action</h4>
+
+                </th>
+            </tr>
+            <tbody id="table2-details">
+
+        </table>
+    </div>
+
+    <script>
+        function newtable(name, age, gender, course, email) {
+            return { name: name, age: age, gender: gender, course: course, email: email };
+        }
+        function savetable() {
+            var name = document.getElementById("inputBoxname").value;
+            var age = document.getElementById("inputBoxage").value;
+            var gender = "";
+            if (document.getElementById("inputBoxmale").checked) {
+                gender = "Male";
+            }
+            else if (document.getElementById("inputBoxfem").checked) {
+                gender = "Female";
+            }
+            var course = document.getElementById("inputBoxcourse").value;
+            var email = document.getElementById("inputBoxemail").value;
+        
+
+            var tableadd = newtable(name, age, gender, course, email);
+
+
+            // console.log(tableadd);
+
+            var table = document.getElementById("table2-details");
+
+            // Create a new row
+            var tr = document.createElement("tr");
+
+            // Create and append each td (table data) element to the tr (table row)
+            var td = document.createElement("td");
+            td.innerHTML = name;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent = age;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent = gender;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent = course;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent = email;
+            tr.appendChild(td);
+
+
+
+            //Add action cell and delete button
+
+            var actionCell = document.createElement("td");
+            var deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+
+            deleteButton.addEventListener("click", function () {
+                // Remove the row when the delete button is clicked
+                tr.remove();
+            });
+            actionCell.appendChild(deleteButton);
+            tr.appendChild(actionCell);
+
+            // Add the row to the table
+            table.appendChild(tr);
+
+        deleteButton.style.backgroundColor="red"
+        deleteButton.style.color="white"
+        deleteButton.style.padding="5px"
+
+        // Clear the form fields
+    document.getElementById("inputBoxname").value = '';
+    document.getElementById("inputBoxage").value = '';
+    document.getElementById("inputBoxmale").checked = false;
+    document.getElementById("inputBoxfem").checked = false;
+    document.getElementById("inputBoxcourse").value = '';
+    document.getElementById("inputBoxemail").value ='';
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

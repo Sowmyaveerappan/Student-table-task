@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(235, 218, 197);
+}
+    
+
+    .heading{
+    font-weight: 700;
+    color: rgb(48, 48, 142);
+}
+
+    .student-details{
+    width: 20%;
+    height: 50%;
+    background-color:white;
+    border: solid black 1px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+#student-details__table tr,td{
+ 
+    border:1px solid;
+    padding: 5px;
+    
+}
+#save{
+    text-align: center;
+    background-color: aquamarine;
+    width: 100%;
+    padding: 5px;
+}
+.course{
+    width: 100%;
+}
+input[type="radio"]{
+    margin:0 10px 0 10px;
+}
+.container{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#student-details__table2{
+    border:1px solid;
+    padding: 5px;
+    position: relative;
+    left: 470px;
+    
+
+}
+.student-details-new tr{
+    background-color: white;
+}
+
+
